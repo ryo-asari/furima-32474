@@ -1,24 +1,63 @@
-# README
+## users table
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+|Column  |Type  |Options    |
+|--------|------|-----------|
+|nickname|string|null: false|
+|email   |string|null: false, unique: true|
+|password|string|null: false|
+|name    |string|null: false|
+|birthday|string|null: false|
 
-Things you may want to cover:
 
-* Ruby version
+### Association
 
-* System dependencies
+* has_many :items
+* has_many :buy
 
-* Configuration
+## items table
 
-* Database creation
+|Column     |Type      |Options    |
+|-----------|----------|-----------|
+|image      |          |null: false|
+|title      |text      |null: false|
+|explanation|text      |null: false|
+|category   |          |null: false|
+|condition  |          |null: false|
+|shipping   |          |null: false|
+|area       |          |null: false|
+|days       |          |null: false|
+|price      |          |null: false|
+|user       |references|foreign_key: true|
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- has_one    :buy
 
-* Services (job queues, cache servers, search engines, etc.)
+## buy table
 
-* Deployment instructions
+|Column|Type      |Options          |
+|------|----------|-----------------|
+|user  |references|foreign_key: true|
+|item  |references|foreign_key: true|
 
-* ...
+### Association
+
+- belongs_to :user
+- belongs_to :item
+- has_one    :address
+
+## address
+
+|Column      |Type  |Options    |
+|------------|------|-----------|
+|postal      |string|null: false|
+|prefecture  |string|null: false|
+|city        |string|null: false|
+|house_number|string|null: false|
+|phone_number|string|null: false|
+|buy         |references|foreign_key: true|
+
+### Association
+
+- belongs_to :buy
