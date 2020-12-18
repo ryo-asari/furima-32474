@@ -1,12 +1,15 @@
 ## users table
 
-|Column  |Type  |Options    |
-|--------|------|-----------|
-|nickname|string|null: false|
-|email   |string|null: false, unique: true|
-|password|string|null: false|
-|name    |string|null: false|
-|birthday|string|null: false|
+|Column    |Type  |Options    |
+|----------|------|-----------|
+|nickname  |string|null: false|
+|email     |string|null: false, unique: true|
+|password  |string|null: false|
+|first_name|string|null: false|
+|last_name |string|null: false|
+|first_kana|string|null: false|
+|last_kana |string|null: false|
+|birthday  |date  |null: false|
 
 
 ### Association
@@ -21,12 +24,12 @@
 |image      |          |null: false|
 |title      |text      |null: false|
 |explanation|text      |null: false|
-|category   |          |null: false|
-|condition  |          |null: false|
-|shipping   |          |null: false|
-|area       |          |null: false|
-|days       |          |null: false|
-|price      |          |null: false|
+|category   |date      |null: false|
+|condition  |date      |null: false|
+|shipping   |date      |null: false|
+|area       |date      |null: false|
+|days       |date      |null: false|
+|price      |text      |null: false|
 |user       |references|foreign_key: true|
 
 ### Association
@@ -51,6 +54,7 @@
 
 |Column      |Type  |Options    |
 |------------|------|-----------|
+|credit      |string|null: false|
 |postal      |string|null: false|
 |prefecture  |string|null: false|
 |city        |string|null: false|
