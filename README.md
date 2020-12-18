@@ -4,7 +4,7 @@
 |----------|------|-----------|
 |nickname  |string|null: false|
 |email     |string|null: false, unique: true|
-|password  |string|null: false|
+|encrypted_password|string|null: false|
 |first_name|string|null: false|
 |last_name |string|null: false|
 |first_kana|string|null: false|
@@ -21,15 +21,14 @@
 
 |Column     |Type      |Options    |
 |-----------|----------|-----------|
-|image      |          |null: false|
 |title      |text      |null: false|
 |explanation|text      |null: false|
-|category   |date      |null: false|
-|condition  |date      |null: false|
-|shipping   |date      |null: false|
-|area       |date      |null: false|
-|days       |date      |null: false|
-|price      |text      |null: false|
+|category_id|integer   |null: false|
+|condition_id|integer  |null: false|
+|shipping_id|integer   |null: false|
+|prefecture_id|integer   |null: false|
+|days_id    |integer   |null: false|
+|price      |integer   |null: false|
 |user       |references|foreign_key: true|
 
 ### Association
@@ -54,11 +53,11 @@
 
 |Column      |Type  |Options    |
 |------------|------|-----------|
-|credit      |string|null: false|
 |postal      |string|null: false|
-|prefecture  |string|null: false|
+|prefecture_id|integer|null: false|
 |city        |string|null: false|
-|house_number|string|null: false|
+|block_number|string|null: false|
+|building_number|string|null: false|
 |phone_number|string|null: false|
 |buy         |references|foreign_key: true|
 
