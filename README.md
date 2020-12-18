@@ -15,7 +15,7 @@
 ### Association
 
 * has_many :items
-* has_many :buy
+* has_many :buys
 
 ## items table
 
@@ -57,7 +57,7 @@
 |prefecture_id|integer|null: false|
 |city        |string|null: false|
 |block_number|string|null: false|
-|building_number|string|null: false|
+|building_number|string|        |
 |phone_number|string|null: false|
 |buy         |references|foreign_key: true|
 
