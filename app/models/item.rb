@@ -18,5 +18,6 @@ class Item < ApplicationRecord
   validates :prefecture_id, numericality: { other_than: 1 }
   validates :pday_id, numericality: { other_than: 1 }
   validates :price, numericality
+  validates :image, presence: true
 
 end
