@@ -56,7 +56,6 @@ RSpec.describe Item, type: :model do
       it "imageがないとitemは保存できない" do
         @item.image = nil
         @item.valid?
-        binding.pry
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
       it "userが紐付いていないとitemは保存できない" do
