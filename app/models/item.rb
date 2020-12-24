@@ -10,11 +10,13 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :pday
 
-  validates :category_id, numericality: { other_than: 1 }
-  validates :condition_id, numericality: { other_than: 1 }
-  validates :shipping_id, numericality: { other_than: 1 }
-  validates :prefecture_id, numericality: { other_than: 0 }
-  validates :pday_id, numericality: { other_than: 1 }
+  with_options numericality: { other_than: 1 } do
+    validates :category_id
+    validates :condition_id
+    validates :shipping_id
+    validates :prefecture_id
+    validates :pday_id
+  end
 
   with_options presence: true do
     validates :title

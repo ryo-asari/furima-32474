@@ -29,7 +29,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Category is not a number")
       end
       it "category_idが1の場合は登録できない" do
-        @item.category_id = "1"
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
@@ -39,7 +39,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Condition is not a number")
       end
       it "condition_idが1の場合は登録できない" do
-        @item.condition_id = "1"
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition must be other than 1")
       end
@@ -49,7 +49,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Shipping is not a number")
       end
       it "shipping_idが1の場合は登録できない" do
-        @item.shipping_id = "1"
+        @item.shipping_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping must be other than 1")
       end
@@ -58,10 +58,10 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture is not a number")
       end
-      it "prefecture_idが0の場合は登録できない" do
-        @item.prefecture_id = "0"
+      it "prefecture_idが1の場合は登録できない" do
+        @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture must be other than 0")
+        expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
       end
       it "pdayがないとitemは保存できない" do
         @item.pday_id = ""
@@ -69,7 +69,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Pday is not a number")
       end
       it "pday_idが1の場合は登録できない" do
-        @item.pday_id = "1"
+        @item.pday_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Pday must be other than 1")
       end
@@ -84,12 +84,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price 半角数字のみで入力して下さい")
       end
       it "priceが299円以下の場合は登録できない" do
-        @item.price = "299"
+        @item.price = 299
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
       end
       it "priceが10_000_000円以上の場合は登録できない" do
-        @item.price = "10000000"
+        @item.price = 10000000
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
       end
