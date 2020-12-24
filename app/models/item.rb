@@ -10,14 +10,20 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :pday
 
-  validates :title, presence: true
-  validates :explanation, presence: true
   validates :category_id, numericality: { other_than: 1 }
   validates :condition_id, numericality: { other_than: 1 }
   validates :shipping_id, numericality: { other_than: 1 }
   validates :prefecture_id, numericality: { other_than: 0 }
   validates :pday_id, numericality: { other_than: 1 }
-  validates :price, presence: true
-  validates :image, presence: true
 
+  with_options presence: true do
+    validates :title
+    validates :explanation
+    validates :image
+    validates :price
+  end
+
+  validates :price, numericality: { with: /\A[0-9]+\z/, message: "半角数字のみで入力して下さい" }
+  validates :price, numericality: { greater_than_or_equal_to: 300 }
+  validates :price, numericality: { less_than_or_equal_to: 9999999 }
 end
