@@ -23,50 +23,25 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Explanation can't be blank")
       end
-      it "categoryがないとitemは保存できない" do
-        @item.category_id = ""
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Category is not a number")
-      end
       it "category_idが1の場合は登録できない" do
         @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category must be other than 1")
-      end
-      it "conditionがないとitemは保存できない" do
-        @item.condition_id = ""
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Condition is not a number")
       end
       it "condition_idが1の場合は登録できない" do
         @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition must be other than 1")
       end
-      it "shippingがないとitemは保存できない" do
-        @item.shipping_id = ""
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping is not a number")
-      end
       it "shipping_idが1の場合は登録できない" do
         @item.shipping_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping must be other than 1")
       end
-      it "prefectureがないとitemは保存できない" do
-        @item.prefecture_id = ""
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture is not a number")
-      end
       it "prefecture_idが1の場合は登録できない" do
         @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
-      end
-      it "pdayがないとitemは保存できない" do
-        @item.pday_id = ""
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Pday is not a number")
       end
       it "pday_idが1の場合は登録できない" do
         @item.pday_id = 1
